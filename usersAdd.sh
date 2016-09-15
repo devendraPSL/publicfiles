@@ -1,0 +1,1 @@
+ echo "edtuser        ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers
