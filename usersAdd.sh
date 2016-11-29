@@ -7,7 +7,7 @@ mkfs -t ext4 /dev/sdc1 > /dev/null
 mkdir /datadisk0 
 mount /dev/sdc1 /datadisk0
 
-echo "UUID=$(blkid | grep -oP '/dev/sdc1: UUID="*"\K[^"]*')   /datadisk0   ext4   defaults   1   2" >> /etc/fstab
+echo "/dev/sdc1    /datadisk0/    ext4    defaults 0 0" >> /etc/fstab
 chmod go+w /datadisk0
 
 
