@@ -1,33 +1,13 @@
 echo "$1        ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers
- 
- 
-# Partitions all data disks attached to the VM and creates
-# a RAID-0 volume with them.
-#  https://raw.githubusercontent.com/Azure/azure-quickstart-templates/875d139c16c9c023dce519e6dd48c707e3473346/slurm-on-sles12-hpc/azuredeploy.sh
 
-    # Loop through and partition disks until not found
+(echo d; echo n; echo p; echo 1; echo; echo; echo a; echo w) | fdisk /dev/sda > /dev/null 
 
-        fdisk /dev/sda << EOF
-d
-n
-p
-1
+(echo n; echo p; echo 1; echo; echo; echo w) | fdisk /dev/sdc > /dev/null 
+mkfs -t ext4 /dev/sdc1 > /dev/null 
+mkdir /datadisk0 
+mount /dev/sdc1 /datadisk0
 
-
-a
-w
-EOF
-
-
-        fdisk /dev/sdc << EOF
-n
-p
-1
-
-
-t
-fd
-w
-EOF
+echo "UUID=$(blkid | grep -oP '/dev/sdc1: UUID="*"\K[^"]*')   /datadisk0   ext4   defaults   1   2" >> /etc/fstab
+chmod go+w /datadisk0
 
 
