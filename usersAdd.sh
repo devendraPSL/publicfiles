@@ -10,4 +10,4 @@ if [ -d "/dev/sdc1" ]
   echo "/dev/sdc1    /datadisk0/    ext4    defaults 0 0" >> /etc/fstab
 fi
 chmod go+w /datadisk0
-sleep 2 && shutdown -r now "Templates updates triggered"
+
