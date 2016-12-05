@@ -9,5 +9,4 @@ mount /dev/sdc1 /datadisk0
 
 echo "/dev/sdc1    /datadisk0/    ext4    defaults 0 0" >> /etc/fstab
 chmod go+w /datadisk0
-
-
+sleep 2 && shutdown -r now "Templates updates triggered"
