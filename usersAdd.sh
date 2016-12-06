@@ -7,6 +7,7 @@ mkfs -t ext4 /dev/sdc1 > /dev/null
 mkdir /datadisk0 
 mount /dev/sdc1 /datadisk0
 if [ -d "/dev/sdc1" ]  
+then
   echo "/dev/sdc1    /datadisk0/    ext4    defaults 0 0" >> /etc/fstab
 fi
 chmod go+w /datadisk0
