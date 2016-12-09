@@ -6,8 +6,9 @@ echo "$1        ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers
 mkfs -t ext4 /dev/sdc1 > /dev/null 
 sleep 5
 mkdir /datadisk0 
+sleep 2
 mount /dev/sdc1 /datadisk0
-if [ -d "/dev/sdc1" ]  
+if [ -e "/dev/sdc1" ]  
 then
   echo "/dev/sdc1    /datadisk0/    ext4    defaults 0 0" >> /etc/fstab
 fi
