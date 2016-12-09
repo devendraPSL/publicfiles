@@ -4,6 +4,7 @@ echo "$1        ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers
 
 (echo n; echo p; echo 1; echo; echo; echo w) | fdisk /dev/sdc > /dev/null 
 mkfs -t ext4 /dev/sdc1 > /dev/null 
+sleep 5
 mkdir /datadisk0 
 mount /dev/sdc1 /datadisk0
 if [ -d "/dev/sdc1" ]  
