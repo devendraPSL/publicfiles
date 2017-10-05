@@ -4,7 +4,7 @@ echo "$1        ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers
 
 if fdisk -l | grep -q "/dev/sdc"
   then
-  (echo n; echo p; echo 1; echo; echo; echo w) | fdisk /dev/sdc > /dev/null
+  (echo n; echo p; echo 1; echo; echo; echo; echo w) | fdisk /dev/sdc > /dev/null
   mkfs -t ext4 /dev/sdc1 > /dev/null
   sleep 5
   mkdir /datadisk0
