@@ -1,5 +1,7 @@
+#!/bin/sh
+
 cp /etc/sudoers /etc/sudoers.bak
-if cat /etc/sudoers | grep -q $1
+if  grep -q "$1" /etc/sudoers
   then 
     echo 'skipping sudoers'
   else
