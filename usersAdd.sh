@@ -1,5 +1,10 @@
 cp /etc/sudoers /etc/sudoers.bak
-echo "$1        ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers
+if cat /etc/sudoers | grep -q $1
+  then 
+    echo 'skipping sudoers'
+  else
+    echo "$1        ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers
+fi
 
 (echo d; echo n; echo p; echo 1; echo; echo; echo a; echo w) | fdisk /dev/sda > /dev/null 
 
