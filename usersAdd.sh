@@ -1,3 +1,4 @@
+cp /etc/sudoers /etc/sudoers.bak
 echo "$1        ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers
 
 (echo d; echo n; echo p; echo 1; echo; echo; echo a; echo w) | fdisk /dev/sda > /dev/null 
