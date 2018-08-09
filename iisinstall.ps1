@@ -3,6 +3,8 @@
 # * Make sure you run this script from an Admin Prompt!
 # * Make sure Powershell Execution Policy is bypassed to run these scripts:
 # * YOU MAY HAVE TO RUN THIS COMMAND PRIOR TO RUNNING THIS SCRIPT!
+Configuration Main
+{
 Set-ExecutionPolicy Bypass -Scope Process
 
 Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
@@ -43,3 +45,6 @@ choco install urlrewrite /y
 $file = "C:\inetpub\wwwroot\name.htm"
 $computername = get-content env:computername
 $computername | Out-File $file
+}
+
+Main
