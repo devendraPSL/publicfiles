@@ -67,14 +67,6 @@ Node $nodeName
       Name = "Web-AppInit"
       Ensure = "Present"
     }
-    Package UrlRewrite
-    {
-        Ensure = "Present"
-        Name = "IIS URL Rewrite Module 2"
-        Path = "https://download.microsoft.com/download/C/9/E/C9E8180D-4E51-40A6-A9BF-776990D8BCA9/rewrite_amd64.msi"
-        ProductId = "08F0318A-D113-4CF0-993E-50F191D397AD"
-        DependsOn = "[WindowsFeature]WebServerRole"
-    }
 
   }
 }
